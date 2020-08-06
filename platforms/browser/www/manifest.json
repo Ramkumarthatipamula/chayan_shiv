@@ -1,0 +1,17 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "PJTSAU",
+  "short_name": "PJTSAU",
+  "version": "com.chayan.shiv",
+  "description": "Brand new cordova project!",
+  "author": "Apache Cordova Team",
+  "icons": [
+    {
+      "src": "src/assets/images/logo.png",
+      "type": "image/png",
+      "sizes": "57x57"
+    }
+  ],
+  "start_url": "index.html"
+}
