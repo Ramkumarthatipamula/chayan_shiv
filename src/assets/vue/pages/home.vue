@@ -16,8 +16,8 @@
         class="searchbar-components"
         search-container=".components-list"
         search-in="a"
-        expandable
-      ></f7-searchbar>
+        expandable>
+</f7-searchbar>
     </f7-navbar>
 
     <f7-row >
