@@ -1,10 +1,15 @@
 <template>
   <f7-page>
-    <f7-navbar title="Videos" back-link="Back"></f7-navbar>
-    <f7-row>
-      <f7-col width="50" v-for="video in videos" :key="video.name">
-        <f7-card class="demo-card-header-pic" outline>
-          <iframe width="100%" height="200%"
+    <f7-navbar>
+      <global-nav-bar />
+    </f7-navbar>
+
+    <f7-block-title>Video Gallery</f7-block-title>
+
+    <f7-row no-gap>
+      <f7-col v-for="video in videos" :key="video.name" width="50" class="demo-col-center-content">
+        <f7-card class="demo-facebook-card">
+          <iframe width="100%" height="100%"
             :src="video.src">
           </iframe>
         </f7-card>
@@ -13,7 +18,12 @@
   </f7-page>
 </template>
 <script>
+import GlobalNavBar from './GlobalNavBar.vue'
+
 export default {
+  components: {
+    GlobalNavBar
+  },
   data() {
     return {
       videos: [{

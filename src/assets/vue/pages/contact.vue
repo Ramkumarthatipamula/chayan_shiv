@@ -1,7 +1,9 @@
 <template>
   <f7-page>
-    <f7-navbar title="Contact Us" back-link="Back"></f7-navbar>
-    <f7-block-title>Details</f7-block-title>
+    <f7-navbar>
+      <global-nav-bar />
+    </f7-navbar>
+    <f7-block-title>Contact</f7-block-title>
     <f7-block strong>
       <p>The Registrar</p>
       <p>Administrative Office</p>
@@ -16,5 +18,11 @@
 </template>
 
 <script>
-export default {}
+import GlobalNavBar from './GlobalNavBar.vue'
+
+export default {
+  components: {
+    GlobalNavBar
+  }
+}
 </script>
