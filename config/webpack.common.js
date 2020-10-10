@@ -91,7 +91,8 @@ module.exports = function (options) {
     plugins: [
       new webpack.DefinePlugin({
         'process.env': {
-          'NODE_ENV': JSON.stringify(options.mode)
+          'NODE_ENV': JSON.stringify(options.mode),
+          BASE_API: '"https://pjtsau-mobile-app.herokuapp.com"',
         }
       }),
       new HtmlWebpackPlugin({

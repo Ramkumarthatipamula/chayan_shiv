@@ -33,17 +33,34 @@
 </template>
 <script>
 import GlobalNavBar from './GlobalNavBar.vue'
+import axios from 'axios'
 
 export default {
   components: {
-    GlobalNavBar
+    GlobalNavBar,
+    axios
   },
   data() {
     return {
       comments: [],
       show_comment_box: true,
-      customValue: ''
+      customValue: '',
+      info: ''
     }
+  },
+  mounted () {
+    // axios.post('https://pjtsau-mobile-app.herokuapp.com/say.json', { "message": "Hello from RapidAPI" }, { { 'Content-Type: application/json' } })
+    //   .then(response => (console.log('llllllllllll')))
+  },
+  created() {
+    // POST request using axios with set headers
+    const article = { title: "Vue POST Request Example" };
+    const headers = {
+    };
+  axios.post("https://pjtsau-mobile-app.herokuapp.com/say.json", article, { headers })
+      .then(response => console.log(response));
+    // axios.post("https://pjtsau-mobile-app.herokuapp.com/say.json" article, { headers })
+    //   .then(response => this.articleId = response.data.id);
   },
   methods: {
     handleSubmit: function() {

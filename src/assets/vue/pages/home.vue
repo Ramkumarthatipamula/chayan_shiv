@@ -23,13 +23,13 @@
     <f7-block>
       <f7-row>
         <f7-col width="33" class="text-align-left">
-          <img width="60px" height="60px" src="icar_logo.png" />
+          <img width="60px" height="60px" :src="icar_logo" />
         </f7-col>
         <f7-col width="33" class="text-align-center">
-          <img width="60px" height="60px" src="pjtsau_logo.png" />
+          <img width="60px" height="60px" :src="pjtsau_logo" />
         </f7-col>
         <f7-col width="33" class="text-align-right">
-          <img width="60px" height="60px" src="ciwa_logo.jpeg" style="margin-right: -18px;" />
+          <img width="60px" height="60px" :src="ciwa_logo" style="margin-right: -18px;" />
         </f7-col>
       </f7-row>
     </f7-block>
@@ -120,27 +120,34 @@
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        comments: [],
-        show_comment_box: true,
-        customValue: ''
-      }
+import pjtsau_logo from 'src/assets/images/pjtsau_logo.png'
+import icar_logo from 'src/assets/images/icar_logo.png'
+import ciwa_logo from 'src/assets/images/ciwa_logo.jpeg'
+
+export default {
+  data() {
+    return {
+      comments: [],
+      show_comment_box: true,
+      customValue: '',
+      pjtsau_logo,
+      icar_logo,
+      ciwa_logo
+    }
+  },
+  methods: {
+    handleSubmit: function() {
+      this.show_comment_box = false
+      console.log('kkkkkkk')
+      console.log(this.customValue)
+      var dt = new Date();
+      var date = `${(dt.getMonth()+1).toString().padStart(2, '0')} - ${dt.getDate().toString().padStart(2, '0')} - ${dt.getFullYear().toString().padStart(4, '0')} ${dt.getHours().toString().padStart(2, '0')}:${dt.getMinutes().toString().padStart(2, '0')}:${dt.getSeconds().toString().padStart(2, '0')}`
+      this.comments.push({ date: date, text: this.customValue })
+      this.customValue = ''
     },
-    methods: {
-      handleSubmit: function() {
-        this.show_comment_box = false
-        console.log('kkkkkkk')
-        console.log(this.customValue)
-        var dt = new Date();
-        var date = `${(dt.getMonth()+1).toString().padStart(2, '0')} - ${dt.getDate().toString().padStart(2, '0')} - ${dt.getFullYear().toString().padStart(4, '0')} ${dt.getHours().toString().padStart(2, '0')}:${dt.getMinutes().toString().padStart(2, '0')}:${dt.getSeconds().toString().padStart(2, '0')}`
-        this.comments.push({ date: date, text: this.customValue })
-        this.customValue = ''
-      },
-      showCommentBox: function() {
-        this.show_comment_box = true
-      }
-    },
-  };
+    showCommentBox: function() {
+      this.show_comment_box = true
+    }
+  },
+};
 </script>
